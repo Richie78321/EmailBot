@@ -10,7 +10,7 @@ import requests
 from dotenv import load_dotenv
 load_dotenv()
 
-conn = sqlite3.connect('bot.db')
+conn = sqlite3.connect('./data/bot.db')
 c = conn.cursor()
 c.execute("""CREATE TABLE IF NOT EXISTS users(
    userid INT,
