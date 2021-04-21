@@ -181,9 +181,7 @@ async def on_message(message):
                 try:
                     sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
                     response = sg.send(emailmessage)
-                    print(response.status_code)
-                    print(response.body)
-                    print(response.headers)
+                    print("Verification email sent to {}".format(message_content))
                     await message.channel.send("Email sent. **Reply here with your verification code**. If you haven't received it, check your spam folder.")
                 except Exception as e:
                     mailgun_email = mailgun_send(message_content, random_code)
