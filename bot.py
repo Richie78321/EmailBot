@@ -7,7 +7,6 @@ import random
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 import requests
-from keep_alive import keep_alive
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -339,5 +338,4 @@ async def verify(ctx):
         elif user_prev_verify[4] == 0:
             await ctx.author.send(verify_msg(ctx.guild, check_on_join[1]))
 
-keep_alive()
 client.run(os.environ.get('DISCORD_TOKEN'))
