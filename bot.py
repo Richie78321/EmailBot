@@ -184,6 +184,7 @@ async def on_message(message):
                     print("Verification email sent to {}".format(message_content))
                     await message.channel.send("Email sent. **Reply here with your verification code**. If you haven't received it, check your spam folder.")
                 except Exception as e:
+                    print(e)
                     mailgun_email = mailgun_send(message_content, random_code)
                     if mailgun_email.status_code == 200:
                         await message.channel.send("Email sent. **Reply here with your verification code**. If you haven't received it, check your spam folder.")
